@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Estatística</title>
+    <!-- Incluir o CSS do Tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center h-screen">
+    <div class="w-1/2 p-8 bg-white rounded-md shadow-lg">
+      <h1 class="text-3xl font-bold mb-4 text-center mb-12 text-blue-500">
+        Calculadora Estatística
+      </h1>
+      <div class="mb-4">
+        <p class="mb-2">Insira os dados separados por vírgula:</p>
+        <input
+          id="dataInput"
+          type="text"
+          class="border border-gray-300 px-4 py-2 rounded-md w-full"
+        />
+      </div>
+      <button
+        onclick="calcular()"
+        class="bg-blue-500 text-white px-4 py-2 rounded-md"
+      >
+        Calcular
+      </button>
+      <div id="resultado" class="mt-4"></div>
+    </div>
+
+    <!-- Incluir o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+  </body>
+</html>
