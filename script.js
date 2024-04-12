@@ -1,12 +1,12 @@
 function calcular() {
-    var entradaDados = document.getElementById("dadosEntrada").value;
-    var arrayDados = entradaDados.split(',').map(Number).sort((a, b) => a - b);
+    var inputData = document.getElementById("dataInput").value;
+    var dataArray = inputData.split(',').map(Number).sort((a, b) => a - b);
 
-    var soma = arrayDados.reduce((acc, curr) => acc + curr, 0);
-    var media = soma / arrayDados.length;
+    var soma = dataArray.reduce((acc, curr) => acc + curr, 0);
+    var media = soma / dataArray.length;
 
-    var mediana = calcularMediana(arrayDados);
-    var moda = calcularModa(arrayDados);
+    var mediana = calcularMediana(dataArray);
+    var moda = calcularModa(dataArray);
 
     var resultadoHTML = `<p class='mb-2'>Média: ${media}</p>
                          <p class='mb-2'>Mediana: ${mediana}</p>
@@ -15,18 +15,18 @@ function calcular() {
     document.getElementById("resultado").innerHTML = resultadoHTML;
 }
 
-function calcularMediana(arrayDados) {
-    var meio = Math.floor(arrayDados.length / 2);
-    return arrayDados.length % 2 === 0 ? (arrayDados[meio - 1] + arrayDados[meio]) / 2 : arrayDados[meio];
+function calcularMediana(dataArray) {
+    var meio = Math.floor(dataArray.length / 2);
+    return dataArray.length % 2 === 0 ? (dataArray[meio - 1] + dataArray[meio]) / 2 : dataArray[meio];
 }
 
-function calcularModa(arrayDados) {
-    var mapaFrequencia = {};
-    arrayDados.forEach(elemento => {
-        mapaFrequencia[elemento] = (mapaFrequencia[elemento] || 0) + 1;
+function calcularModa(dataArray) {
+    var frequencyMap = {};
+    dataArray.forEach(element => {
+        frequencyMap[element] = (frequencyMap[element] || 0) + 1;
     });
 
-    var maxFrequencia = Math.max(...Object.values(mapaFrequencia));
-    var moda = Object.keys(mapaFrequencia).filter(chave => mapaFrequencia[chave] === maxFrequencia);
+    var maxFrequency = Math.max(...Object.values(frequencyMap));
+    var moda = Object.keys(frequencyMap).filter(key => frequencyMap[key] === maxFrequency);
     return moda.join(', ');
 }
